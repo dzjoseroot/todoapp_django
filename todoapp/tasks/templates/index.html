@@ -32,17 +32,22 @@
             </div>
           </form>
         </div>
-        {%for task in tasks %}
-        <div class="col-12 col-md-8 mx-auto alert alert-info">
-          {% if task.complete == True %}
-            <p><strike>{{task}}</strike></p>
-          {% else %}
-            <p>{{task}}</p>
-          {% endif %}
-          <a href="{% url 'edit' task.id %}" class="btn btn-warning mr-2">update</a>
-          <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+        <div class="col-12 col-md-8 mx-auto p-1" style="max-height: 450px; overflow-y: scroll;">
+          {%for task in tasks %}
+          <div class="alert alert-info">
+            {% if task.complete == True %}
+              <p><strike>{{task}}</strike></p>
+            {% else %}
+              <p>{{task}}</p>
+            {% endif %}
+            <a href="{% url 'edit' task.id %}" class="btn btn-warning mr-2">update</a>
+            <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
+        <div class="col-12 col-md-8 mx-auto text-center">
+          <h3>Todo App with Django</h3>
+        </div>
       </div>
     </div>
 

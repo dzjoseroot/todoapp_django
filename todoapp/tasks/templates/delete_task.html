@@ -20,13 +20,14 @@
     <div class="container py-4">
       <div class="row">
         <div class="col-12 col-md-8 mx-auto p-0 mb-1">
-          <p>Are you sure you want to delete the task: {{item.title}} ?</p>
-          <a href="{% url 'index' %}">Cancel</a>
+          <div class="alert alert-warning">Are you sure you want to delete the task: <strong>{{item.title}}</strong> ?</div>
+
           <form class="w-100" action="" method="POST">
             {% csrf_token %}
             <div class="form-group">
-              <div class="col-4">
-                <input type="submit" name="Confirm" class="btn btn-block btn-primary" value="Confirm">
+              <div class="col-12 p-0">
+                <input type="submit" name="Confirm" class="btn btn-sm btn-primary" value="Confirm">
+                <a href="{% url 'index' %}" class="btn btn-sm btn-secondary">Cancel</a>
               </div>
             </div>
           </form>
